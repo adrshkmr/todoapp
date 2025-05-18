@@ -5,7 +5,6 @@ const taskList = document.querySelector('#taskList');
 const taskInput = document.querySelector('#textArea');
 
 
-
 taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -15,8 +14,13 @@ taskForm.addEventListener('submit', (e) => {
 
     //add tasks as list
     const listItem = document.createElement('li');
+    listItem.style.listStyleType = 'none';
     listItem.textContent = taskText;
-
+    
+    //create span for both of the buttons
+    const spanForButtons = document.createElement('span');
+    spanForButtons.id = 'btnsSpan';
+    
     //create delete button
     const delBtn = document.createElement('button');
     delBtn.type = 'button';
@@ -26,26 +30,22 @@ taskForm.addEventListener('submit', (e) => {
         taskList.removeChild(listItem);
     })
 
-
     //mark done feature
     const doneBtn = document.createElement('button');
     doneBtn.type = 'button';
     doneBtn.classList.add('done-button');
     doneBtn.textContent = '✔️';
     doneBtn.addEventListener('click', () => {
-        listItem.style.textDecoration = 'line-through';
+        listItem.classList.toggle('completed');
     })
 
-
-
     taskList.appendChild(listItem);
-    listItem.appendChild(delBtn);
-    listItem.appendChild(doneBtn);
-
+    spanForButtons.appendChild(delBtn);
+    spanForButtons.appendChild(doneBtn);
+    listItem.appendChild(spanForButtons);
 
     taskInput.value = '';
 })
-
 
 
 //submit on enter

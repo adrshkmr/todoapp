@@ -27,8 +27,20 @@ div#rightPanel{
     outline: none;
 }
 
-
-.del-button, .done-button{
-    float: right;
+li{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    
 }
 
+ul{
+    border-radius: 5px;
+    background-color: rgb(207, 207, 207);
+
+}
+
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}

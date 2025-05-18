@@ -27,3 +27,8 @@ div#rightPanel{
     outline: none;
 }
 
+
+.del-button, .done-button{
+    float: right;
+}
+
